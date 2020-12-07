@@ -3,10 +3,7 @@
 @section('content')
 
     <div class="text-right">
-        <a href="/carriers/create" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            @svg('add-solid', 'fill-current w-4 h-4 mr-1 ml-0 inline')
-            New carrier
-        </a>
+        <x-anchors.buttons.create :href="'/carriers/create'" :text="'New carrier'"/>
     </div>
     <div class="my-4">
         <table class="table-auto w-full">
