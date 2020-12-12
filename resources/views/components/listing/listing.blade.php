@@ -1,7 +1,7 @@
 <table class="table-auto w-full">
     <thead>
         <tr>    
-            @foreach(array_keys($items->toQuery()->getModel()->getAttributes()) as $column) 
+            @foreach($columns as $column) 
                 <th class="text-right pb-2 pt-2">{{ __($items->toQuery()->getModel()->getTable().'.columns.'.$column) }}</th>
             @endforeach
             <th class="text-right pb-2 pt-2"></th>

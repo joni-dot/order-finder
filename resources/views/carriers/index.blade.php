@@ -5,6 +5,6 @@
         <x-anchors.buttons.create :href="'/carriers/create'" :text="'New carrier'"/>
     </div>
     <div class="my-4">
-        <x-listing.list :items="$carriers"/>
+        <x-listing.listing :items="$carriers"/>
     </div>
 @endsection
