@@ -15,7 +15,11 @@ class ListCarriersController extends Controller
     public function __invoke()
     {
         return view('carriers.index', [
-            'carriers' => Carrier::paginate(),
+            'carriers' => Carrier::select([
+                'id',
+                'name',
+            ])
+                ->paginate(),
         ]);
     }
 }

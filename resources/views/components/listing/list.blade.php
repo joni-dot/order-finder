@@ -1,8 +1,9 @@
 <table class="table-auto w-full">
     <thead>
-        <tr>
-            <th class="text-right pb-2 pt-2">ID</th>
-            <th class="text-right pb-2 pt-2">Name</th>
+        <tr>    
+            @foreach(array_keys($items->toQuery()->getModel()->getAttributes()) as $column) 
+                <th class="text-right pb-2 pt-2">{{ __($items->toQuery()->getModel()->getTable().'.columns.'.$column) }}</th>
+            @endforeach
             <th class="text-right pb-2 pt-2"></th>
         </tr>
     </thead>
@@ -12,8 +13,7 @@
                 <td class="mb-2 pt-2 pb-2 text-right">{{ $item->id }}</td>
                 <td class="mb-2 pt-2 pb-2 text-right">{{ $item->name }}</td>
                 <td class="mb-2 pt-2 pb-2 text-right">
-                    <x-anchors.buttons.edit :href="'/carriers/'.$item->id.'/edit'" :text="'Edit'"/>
-                    <livewire:carriers.delete-carrier :carrier="$item">
+                    @includeIf('carriers.components.list-actions')
                 </td>
             </tr>
         @empty
