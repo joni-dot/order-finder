@@ -1,5 +1,5 @@
-<div>
-    <form class="w-full max-w-sm" wire:submit.prevent="submit">
+<div class="bg-teal-500 p-5 rounded">
+    <form class="w-full" wire:submit.prevent="submit">
         @csrf
         @include('livewire.carriers.components._form')
     </form>
