@@ -19,7 +19,7 @@ class UpdateCarrierTest extends TestCase
      */
     public function testThatItCanUpdateCarrier(): void
     {
-        $existingCarrier = Carrier::create([
+        $existingCarrier = Carrier::factory()->create([
             'name' => 'Old name',
         ]);
 
