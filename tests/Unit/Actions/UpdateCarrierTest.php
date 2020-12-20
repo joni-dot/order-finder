@@ -27,9 +27,9 @@ class UpdateCarrierTest extends TestCase
             'name' => 'New name',
         ]);
 
-        $this->assertDatabaseCount('carriers', 1);
+        $this->assertDatabaseCarrierCount(1);
 
-        $this->assertDatabaseHas('carriers', [
+        $this->assertDatabaseHasCarrier([
             'id' => $existingCarrier->id,
             'name' => 'New name',
         ]);
