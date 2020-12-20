@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\ModeOfDeliveries;
 
 use App\Http\Controllers\Controller;
-use App\ModeOfDelivery;
+use App\Models\ModeOfDelivery;
 
 class ListModeOfDeliveriesController extends Controller
 {

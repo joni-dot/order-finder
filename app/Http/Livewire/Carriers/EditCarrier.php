@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Carriers;
 
 use App\Actions\Carriers\UpdateCarrier as UpdateCarrierAction;
-use App\Carrier;
 use App\Http\Requests\SaveCarrierRequest;
+use App\Models\Carrier;
 use Livewire\Component;
 
 class EditCarrier extends Component

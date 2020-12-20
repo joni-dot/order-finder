@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Carrier;
+use App\Models\Carrier;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CarrierFactory extends Factory

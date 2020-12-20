@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Carrier;
+use App\Models\Carrier;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 

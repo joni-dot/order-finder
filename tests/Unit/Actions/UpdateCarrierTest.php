@@ -3,7 +3,7 @@
 namespace Tests\Unit\Actions;
 
 use App\Actions\Carriers\UpdateCarrier;
-use App\Carrier;
+use App\Models\Carrier;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ModeOfDeliveries;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveModeOfDeliveryRequest;
-use App\ModeOfDelivery;
+use App\Models\ModeOfDelivery;
 
 class StoreModeOfDeliveryController extends Controller
 {

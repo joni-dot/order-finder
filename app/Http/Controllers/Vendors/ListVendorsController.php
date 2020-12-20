@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Vendors;
 
 use App\Http\Controllers\Controller;
-use App\Vendor;
+use App\Models\Vendor;
 
 class ListVendorsController extends Controller
 {

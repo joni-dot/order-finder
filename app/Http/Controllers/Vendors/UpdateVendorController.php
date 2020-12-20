@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Vendors;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveVendorRequest;
-use App\Vendor;
+use App\Models\Vendor;
 
 class UpdateVendorController extends Controller
 {

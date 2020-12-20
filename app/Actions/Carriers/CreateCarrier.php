@@ -2,7 +2,7 @@
 
 namespace App\Actions\Carriers;
 
-use App\Carrier;
+use App\Models\Carrier;
 
 class CreateCarrier
 {
