@@ -13,6 +13,5 @@ class ListOrdersController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

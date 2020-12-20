@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\ModeOfDeliveries;
 
 use App\Http\Controllers\Controller;
-use App\ModeOfDelivery;
 use App\Http\Requests\SaveModeOfDeliveryRequest;
+use App\ModeOfDelivery;
 
 class StoreModeOfDeliveryController extends Controller
 {

@@ -13,6 +13,5 @@ class StoreOrderController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

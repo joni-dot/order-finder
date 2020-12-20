@@ -2,10 +2,10 @@
 
 namespace Tests\Unit\Actions;
 
+use App\Actions\Carriers\CreateCarrier;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
-use App\Actions\Carriers\CreateCarrier;
 
 class CreateCarrierTest extends TestCase
 {

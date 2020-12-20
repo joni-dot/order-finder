@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Carriers;
 
-use App\Http\Controllers\Controller;
 use App\Carrier;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveCarrierRequest;
 
 class StoreCarrierController extends Controller

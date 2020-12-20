@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Vendors;
 
 use App\Http\Controllers\Controller;
-use App\Vendor;
 use App\Http\Requests\SaveVendorRequest;
+use App\Vendor;
 
 class StoreVendorController extends Controller
 {

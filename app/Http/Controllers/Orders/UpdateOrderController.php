@@ -13,6 +13,5 @@ class UpdateOrderController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Carriers;
 
-use Livewire\Component;
+use App\Actions\Carriers\CreateCarrier as CreateCarrierAction;
 use App\Carrier;
 use App\Http\Requests\SaveCarrierRequest;
-use App\Actions\Carriers\CreateCarrier as CreateCarrierAction;
+use Livewire\Component;
 
 class CreateCarrier extends Component
 {

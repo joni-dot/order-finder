@@ -49,7 +49,7 @@ class Listing extends Component
 
     /**
      * Get columns from Eloquent collection.
-     * 
+     *
      * @param mixed $items
      * @return array
      */

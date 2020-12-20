@@ -13,6 +13,5 @@ class ShowOrderCreationFormController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

@@ -13,6 +13,5 @@ class DeleteOrderController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Carriers;
 
-use Livewire\Component;
+use App\Actions\Carriers\UpdateCarrier as UpdateCarrierAction;
 use App\Carrier;
 use App\Http\Requests\SaveCarrierRequest;
-use App\Actions\Carriers\UpdateCarrier as UpdateCarrierAction;
+use Livewire\Component;
 
 class EditCarrier extends Component
 {

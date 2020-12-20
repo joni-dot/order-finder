@@ -13,6 +13,5 @@ class ShowOrderEditFormController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

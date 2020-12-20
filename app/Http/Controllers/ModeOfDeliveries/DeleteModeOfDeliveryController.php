@@ -13,6 +13,5 @@ class DeleteModeOfDeliveryController extends Controller
      */
     public function __invoke()
     {
-
     }
 }

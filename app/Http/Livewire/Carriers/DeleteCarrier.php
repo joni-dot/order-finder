@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Carriers;
 
-use Livewire\Component;
 use App\Carrier;
+use Livewire\Component;
 
 class DeleteCarrier extends Component
 {
