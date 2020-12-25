@@ -23,6 +23,7 @@ class CarrierModeOfTransportFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'price' => $this->faker->numberBetween($min = 1000, $max = 50000),
             'price_vat' => $this->faker->numberBetween($min = 1000, $max = 50000),
         ];
     }

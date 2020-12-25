@@ -16,6 +16,7 @@ class CreateCarrierMOdeOfTransportsTable extends Migration
         Schema::create('carrier_mode_of_transports', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->bigInteger('price');
             $table->bigInteger('price_vat');
             $table->timestamps();
         });
