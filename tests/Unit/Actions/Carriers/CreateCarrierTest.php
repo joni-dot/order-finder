@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Actions;
+namespace Tests\Unit\Actions\Carriers;
 
 use App\Actions\Carriers\CreateCarrier;
 use Illuminate\Foundation\Testing\RefreshDatabase;
