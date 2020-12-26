@@ -33,6 +33,9 @@ Route::patch('carriers/{carrier}', 'Carriers\UpdateCarrierController')->name('ca
 Route::post('carriers/', 'Carriers\StoreCarrierController')->name('carriers.store');
 Route::delete('carriers/', 'Carriers\DeleteCarrierController')->name('carriers.delete');
 
+// Carrier mode of transports...
+Route::get('carriers/{carrier}/mode-of-transports', 'Carriers\ModeOfTransports\ListCarrierModeOfTransportsController')->name('carriers.mode-of-transports.index');
+
 // Mode of deliveries...
 Route::get('mode-of-deliveries', 'ModeOfDeliveries\ListModeOfDeliveriesController')->name('mode-of-deliveries.index');
 Route::get('mode-of-deliveries/create', 'ModeOfDeliveries\ShowModeOfDeliveryCreationFormController')->name('mode-of-deliveries.create');
