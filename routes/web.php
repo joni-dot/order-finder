@@ -18,33 +18,33 @@ Route::get('/', function () {
 });
 
 // Vendors...
-Route::get('vendors', 'Vendors\ListVendorsController');
-Route::get('vendors/create', 'Vendors\ShowVendorCreationFormController');
-Route::get('vendors/{vendor}/edit', 'Vendors\ShowVendorEditFormController');
-Route::patch('vendors/{vendor}', 'Vendors\UpdateVendorController');
-Route::post('vendors/', 'Vendors\StoreVendorController');
-Route::delete('vendors/', 'Vendors\DeleteVendorController');
+Route::get('vendors', 'Vendors\ListVendorsController')->name('vendors.index');
+Route::get('vendors/create', 'Vendors\ShowVendorCreationFormController')->name('vendors.create');
+Route::get('vendors/{vendor}/edit', 'Vendors\ShowVendorEditFormController')->name('vendors.edit');
+Route::patch('vendors/{vendor}', 'Vendors\UpdateVendorController')->name('vendors.update');
+Route::post('vendors/', 'Vendors\StoreVendorController')->name('vendors.store');
+Route::delete('vendors/', 'Vendors\DeleteVendorController')->name('vendors.delete');
 
 // Carriers...
-Route::get('carriers', 'Carriers\ListCarriersController');
-Route::get('carriers/create', 'Carriers\ShowCarrierCreationFormController');
-Route::get('carriers/{carrier}/edit', 'Carriers\ShowCarrierEditFormController');
-Route::patch('carriers/{carrier}', 'Carriers\UpdateCarrierController');
-Route::post('carriers/', 'Carriers\StoreCarrierController');
-Route::delete('carriers/', 'Carriers\DeleteCarrierController');
+Route::get('carriers', 'Carriers\ListCarriersController')->name('carriers.index');
+Route::get('carriers/create', 'Carriers\ShowCarrierCreationFormController')->name('carriers.create');
+Route::get('carriers/{carrier}/edit', 'Carriers\ShowCarrierEditFormController')->name('carriers.edit');
+Route::patch('carriers/{carrier}', 'Carriers\UpdateCarrierController')->name('carriers.update');
+Route::post('carriers/', 'Carriers\StoreCarrierController')->name('carriers.store');
+Route::delete('carriers/', 'Carriers\DeleteCarrierController')->name('carriers.delete');
 
 // Mode of deliveries...
-Route::get('mode-of-deliveries', 'ModeOfDeliveries\ListModeOfDeliveriesController');
-Route::get('mode-of-deliveries/create', 'ModeOfDeliveries\ShowModeOfDeliveryCreationFormController');
-Route::get('mode-of-deliveries/{modeOfDelivery}/edit', 'ModeOfDeliveries\ShowModeOfDeliveryEditFormController');
-Route::patch('mode-of-deliveries/{modeOfDelivery}', 'ModeOfDeliveries\UpdateModeOfDeliveryController');
-Route::post('mode-of-deliveries/', 'ModeOfDeliveries\StoreModeOfDeliveryController');
-Route::delete('mode-of-deliveries/', 'ModeOfDeliveries\DeleteModeOfDeliveryController');
+Route::get('mode-of-deliveries', 'ModeOfDeliveries\ListModeOfDeliveriesController')->name('mode-of-deliveries.index');
+Route::get('mode-of-deliveries/create', 'ModeOfDeliveries\ShowModeOfDeliveryCreationFormController')->name('mode-of-deliveries.create');
+Route::get('mode-of-deliveries/{modeOfDelivery}/edit', 'ModeOfDeliveries\ShowModeOfDeliveryEditFormController')->name('mode-of-deliveries.edit');
+Route::patch('mode-of-deliveries/{modeOfDelivery}', 'ModeOfDeliveries\UpdateModeOfDeliveryController')->name('mode-of-deliveries.updates');
+Route::post('mode-of-deliveries/', 'ModeOfDeliveries\StoreModeOfDeliveryController')->name('mode-of-deliveries.store');
+Route::delete('mode-of-deliveries/', 'ModeOfDeliveries\DeleteModeOfDeliveryController')->name('mode-of-deliveries.delete');
 
 // Orders
-Route::get('orders', 'Orders\ListOrdersController');
-Route::get('orders/{order}/edit', 'Orders\ShowOrderEditFormController');
-Route::patch('orders/{order}', 'Orders\UpdateOrderController');
-Route::get('orders/create', 'Orders\ShowOrderCreationFormController');
-Route::post('orders/', 'Orders\StoreOrderController');
-Route::delete('orders/', 'Orders\DeleteOrderController');
+Route::get('orders', 'Orders\ListOrdersController')->name('orders.index');
+Route::get('orders/{order}/edit', 'Orders\ShowOrderEditFormController')->name('orders.edit');
+Route::patch('orders/{order}', 'Orders\UpdateOrderController')->name('orders.update');
+Route::get('orders/create', 'Orders\ShowOrderCreationFormController')->name('orders.create');
+Route::post('orders/', 'Orders\StoreOrderController')->name('orders.store');
+Route::delete('orders/', 'Orders\DeleteOrderController')->name('orders.delete');
