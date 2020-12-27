@@ -12,7 +12,7 @@ class ListCarrierModeOfTransportsController extends Controller
      *
      * @return View
      */
-    public function __invoke()
+    public function __invoke(Carrier $carrier)
     {
         return '';
     }

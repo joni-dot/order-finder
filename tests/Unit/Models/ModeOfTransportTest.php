@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\CarrierModeOfTransport;
+use App\Models\ModeOfTransport;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CarrierModeOfTransportTest extends TestCase
+class ModeOfTransportTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -17,17 +17,17 @@ class CarrierModeOfTransportTest extends TestCase
      */
     public function testThatIdIsGuarded(): void
     {
-        $carrierModeOfTransportData = CarrierModeOfTransport::factory()
+        $modeOfTransportData = ModeOfTransport::factory()
             ->make()
             ->toArray();
 
-        CarrierModeOfTransport::create(array_merge($carrierModeOfTransportData, [
+        ModeOfTransport::create(array_merge($modeOfTransportData, [
             'id' => 123,
         ]));
 
-        $this->assertDatabaseCarrierModeOfTransportCount(1);
+        $this->assertDatabaseModeOfTransportCount(1);
 
-        $this->assertDatabaseHasCarrierModeOfTransport([
+        $this->assertDatabaseHasModeOfTransport([
             'id' => 1,
         ]);
     }

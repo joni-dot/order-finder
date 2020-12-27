@@ -3,7 +3,7 @@
 namespace Tests;
 
 use App\Models\Carrier;
-use App\Models\CarrierModeOfTransport;
+use App\Models\ModeOfTransport;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -35,9 +35,9 @@ abstract class TestCase extends BaseTestCase
      *
      * @param array $data
      */
-    protected function assertDatabaseHasCarrierModeOfTransport(array $data): void
+    protected function assertDatabaseHasModeOfTransport(array $data): void
     {
-        $this->assertDatabaseHas((new CarrierModeOfTransport)->getTable(), $data);
+        $this->assertDatabaseHas((new ModeOfTransport)->getTable(), $data);
     }
 
     /**
@@ -45,8 +45,8 @@ abstract class TestCase extends BaseTestCase
      *
      * @param int $data
      */
-    protected function assertDatabaseCarrierModeOfTransportCount(int $count): void
+    protected function assertDatabaseModeOfTransportCount(int $count): void
     {
-        $this->assertDatabaseCount((new CarrierModeOfTransport)->getTable(), $count);
+        $this->assertDatabaseCount((new ModeOfTransport)->getTable(), $count);
     }
 }

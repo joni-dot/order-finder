@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\CarrierModeOfTransport;
+use App\Models\ModeOfTransport;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CarrierModeOfTransportFactory extends Factory
+class ModeOfTransportFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = CarrierModeOfTransport::class;
+    protected $model = ModeOfTransport::class;
 
     /**
      * Define the model's default state.
