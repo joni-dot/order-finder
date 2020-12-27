@@ -14,6 +14,8 @@ class ListCarrierModeOfTransportsController extends Controller
      */
     public function __invoke(Carrier $carrier)
     {
-        return '';
+        return view('carriers.mode-of-transports.index', [
+            'carrier' => $carrier,
+        ]);
     }
 }
