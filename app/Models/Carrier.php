@@ -15,4 +15,12 @@ class Carrier extends Model
      * @var array
      */
     protected $guarded = ['id'];
+
+    /**
+     * Get the mode of transports for the carrier.
+     */
+    public function modeOfTransports()
+    {
+        return $this->hasMany(ModeOfTransport::class);
+    }
 }
