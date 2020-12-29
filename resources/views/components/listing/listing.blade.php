@@ -13,7 +13,7 @@
                 <td class="mb-2 pt-2 pb-2 text-right">{{ $item->id }}</td>
                 <td class="mb-2 pt-2 pb-2 text-right">{{ $item->name }}</td>
                 <td class="mb-2 pt-2 pb-2 text-right">
-                    @includeIf('carriers.components.list-actions')
+                    @includeIf($itemsName.'.components.list-actions')
                 </td>
             </tr>
         @empty

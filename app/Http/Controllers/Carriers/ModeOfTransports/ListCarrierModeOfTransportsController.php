@@ -16,6 +16,12 @@ class ListCarrierModeOfTransportsController extends Controller
     {
         return view('carriers.mode-of-transports.index', [
             'carrier' => $carrier,
+            'carrierModeOfTransports' => $carrier->modeOfTransports()
+                ->select([
+                    'id',
+                    'name',
+                ])
+                ->paginate(),
         ]);
     }
 }

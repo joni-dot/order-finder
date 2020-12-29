@@ -44,6 +44,7 @@ class Listing extends Component
 
         return view('components.listing.listing', [
             'columns' => $this->getColumns(),
+            'itemsName' => $this->itemsName,
         ]);
     }
 
