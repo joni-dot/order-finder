@@ -14,6 +14,8 @@ class ShowCarrierModeOfTransportCreationFormController extends Controller
      */
     public function __invoke(Carrier $carrier)
     {
-        return '';
+        return view('carriers.mode-of-transports.create', [
+            'carrier' => $carrier,
+        ]);
     }
 }
