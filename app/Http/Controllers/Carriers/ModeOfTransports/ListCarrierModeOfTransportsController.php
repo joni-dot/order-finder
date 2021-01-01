@@ -20,6 +20,7 @@ class ListCarrierModeOfTransportsController extends Controller
                 ->select([
                     'id',
                     'name',
+                    'carrier_id',
                 ])
                 ->paginate(),
         ]);

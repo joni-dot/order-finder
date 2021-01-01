@@ -8,7 +8,7 @@ use App\Models\Carrier;
 class ShowCarrierModeOfTransportCreationFormController extends Controller
 {
     /**
-     * List carrier mode of transports.
+     * Show carrier mofe of transport creation form.
      *
      * @return View
      */

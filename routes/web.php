@@ -36,6 +36,7 @@ Route::delete('carriers/', 'Carriers\DeleteCarrierController')->name('carriers.d
 // Carrier mode of transports...
 Route::get('carriers/{carrier}/mode-of-transports', 'Carriers\ModeOfTransports\ListCarrierModeOfTransportsController')->name('carriers.mode-of-transports.index');
 Route::get('carriers/{carrier}/mode-of-transports/create', 'Carriers\ModeOfTransports\ShowCarrierModeOfTransportCreationFormController')->name('carriers.mode-of-transports.create');
+Route::get('carriers/{carrier}/mode-of-transports/edit/{modeOfTransport}', 'Carriers\ModeOfTransports\ShowCarrierModeOfTransportEditFormController')->name('carriers.mode-of-transports.edit');
 
 // Mode of deliveries...
 Route::get('mode-of-deliveries', 'ModeOfDeliveries\ListModeOfDeliveriesController')->name('mode-of-deliveries.index');
