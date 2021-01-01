@@ -11,7 +11,7 @@ class CreateModeOfTransportTest extends TestCase
     use RefreshDatabase;
 
     /**
-     * Test that CreateModeOfTransportAction can create carrier mode of transport.
+     * Test that CreateModeOfTransportAction can create mode of transport.
      *
      * @return void
      */
