@@ -23,6 +23,7 @@ class ListCarrierModeOfTransportsController extends Controller
                     'carrier_id',
                 ])
                 ->paginate(),
+            'hiddenColumns' => ['carrier_id'],
         ]);
     }
 }

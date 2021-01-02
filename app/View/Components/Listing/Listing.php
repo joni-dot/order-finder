@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Listing;
 
+use Illuminate\Support\Arr;
 use Illuminate\View\Component;
 
 class Listing extends Component
@@ -9,26 +10,37 @@ class Listing extends Component
     /**
      * Eloquent collection of items.
      *
-     * @var mixed
+     * @var \Illuminate\Support\Collection
      */
     public $items;
 
     /**
      * Name of the items.
      *
-     * @var mixed
+     * @var string
      */
     public $itemsName = null;
+
+    /**
+     * List of hidden columns that are not shown on listing.
+     *
+     * @var array
+     */
+    public $hiddenColumns = [];
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($items, $itemsName)
-    {
+    public function __construct(
+        $items,
+        $itemsName = '',
+        $hiddenColumns = []
+    ) {
         $this->items = $items;
         $this->itemsName = $itemsName;
+        $this->hiddenColumns = $hiddenColumns;
     }
 
     /**
@@ -43,7 +55,7 @@ class Listing extends Component
         }
 
         return view('components.listing.listing', [
-            'columns' => $this->getColumns(),
+            'columns' => $this->columns(),
             'itemsName' => $this->itemsName,
         ]);
     }
@@ -51,17 +63,36 @@ class Listing extends Component
     /**
      * Get columns from Eloquent collection.
      *
-     * @param mixed $items
      * @return array
      */
-    private function getColumns(): array
+    private function columns(): array
     {
-        if ($this->items->isEmpty()) {
+        if ($this->noItems()) {
             return [];
         }
 
-        return array_keys(
-            $this->items->toQuery()->getModel()->getAttributes()
-        );
+        return $this->visibleColumns();
+    }
+
+    /**
+     * Check id there's no items on collection.
+     *
+     * @return bool
+     */
+    private function noItems(): bool
+    {
+        return $this->items->isEmpty();
+    }
+
+    /**
+     * Return columns that are visible on listing.
+     *
+     * @return bool
+     */
+    private function visibleColumns(): array
+    {
+        return Arr::where(array_keys($this->items->toQuery()->getModel()->getAttributes()), function ($value) {
+            return ! in_array($value, $this->hiddenColumns);
+        });
     }
 }
