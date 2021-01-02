@@ -5,3 +5,7 @@
     ])" 
     :text="'Edit'"
 />
+<livewire:carriers.mode-of-transports.delete-carrier-mode-of-transport
+    :carrier="$item->carrier"
+    :mode-of-transport="$item"
+>
