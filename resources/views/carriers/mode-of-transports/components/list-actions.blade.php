@@ -5,7 +5,7 @@
     ])" 
     :text="'Edit'"
 />
-<livewire:carriers.mode-of-transports.delete-carrier-mode-of-transport
-    :carrier="$item->carrier"
-    :mode-of-transport="$item"
+<livewire:general.delete-model 
+    :model="$item"
+    :redirectRoute="route('carriers.mode-of-transports.index', [$item->carrier->id, $item->id])"
 >
