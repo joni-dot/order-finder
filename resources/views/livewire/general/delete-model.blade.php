@@ -1,1 +1,1 @@
-<x-buttons.livewire.delete/>
+@include('components.buttons.livewire.delete', ['confirm' => $confirm])

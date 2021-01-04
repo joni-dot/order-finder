@@ -8,11 +8,18 @@ class DeleteModel extends Component
 {
     public $model;
     public $redirectRoute;
+    public $confirm = false;
 
     public function mount($model, $redirectRoute)
     {
         $this->model = $model;
         $this->redirectRoute = $redirectRoute;
+        $this->confirm = false;
+    }
+
+    public function showConfirm()
+    {
+        $this->confirm = true;
     }
 
     public function delete()
