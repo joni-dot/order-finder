@@ -38,15 +38,7 @@ Route::get('carriers/{carrier}/mode-of-transports', 'Carriers\ModeOfTransports\L
 Route::get('carriers/{carrier}/mode-of-transports/create', 'Carriers\ModeOfTransports\ShowCarrierModeOfTransportCreationFormController')->name('carriers.mode-of-transports.create');
 Route::get('carriers/{carrier}/mode-of-transports/edit/{modeOfTransport}', 'Carriers\ModeOfTransports\ShowCarrierModeOfTransportEditFormController')->name('carriers.mode-of-transports.edit');
 
-// Mode of deliveries...
-Route::get('mode-of-deliveries', 'ModeOfDeliveries\ListModeOfDeliveriesController')->name('mode-of-deliveries.index');
-Route::get('mode-of-deliveries/create', 'ModeOfDeliveries\ShowModeOfDeliveryCreationFormController')->name('mode-of-deliveries.create');
-Route::get('mode-of-deliveries/{modeOfDelivery}/edit', 'ModeOfDeliveries\ShowModeOfDeliveryEditFormController')->name('mode-of-deliveries.edit');
-Route::patch('mode-of-deliveries/{modeOfDelivery}', 'ModeOfDeliveries\UpdateModeOfDeliveryController')->name('mode-of-deliveries.updates');
-Route::post('mode-of-deliveries/', 'ModeOfDeliveries\StoreModeOfDeliveryController')->name('mode-of-deliveries.store');
-Route::delete('mode-of-deliveries/', 'ModeOfDeliveries\DeleteModeOfDeliveryController')->name('mode-of-deliveries.delete');
-
-// Orders
+// Orders...
 Route::get('orders', 'Orders\ListOrdersController')->name('orders.index');
 Route::get('orders/{order}/edit', 'Orders\ShowOrderEditFormController')->name('orders.edit');
 Route::patch('orders/{order}', 'Orders\UpdateOrderController')->name('orders.update');

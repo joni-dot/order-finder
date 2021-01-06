@@ -23,11 +23,6 @@
                             </a>
                         </li>
                         <li >
-                            <a href="/mode-of-deliveries" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
-                                Mode of deliveries
-                            </a>
-                        </li>
-                        <li >
                             <a href="/orders" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
                                 Orders
                             </a>
