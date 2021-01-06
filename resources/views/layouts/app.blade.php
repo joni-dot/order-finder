@@ -18,17 +18,17 @@
                 <div class="bg-white w-full">
                     <ul class="list-reset">
                         <li >
-                            <a href="/carriers" class="block p-4 text-grey-darker font-bold border-purple hover:bg-grey-lighter border-r-4">
+                            <a href="{{ route('carriers.index') }}" class="block p-4 text-grey-darker font-bold border-purple hover:bg-grey-lighter border-r-4">
                                 Carriers
                             </a>
                         </li>
                         <li >
-                            <a href="/orders" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
+                            <a href="{{ route('orders.index') }}" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
                                 Orders
                             </a>
                         </li>
                         <li >
-                            <a href="/vendors" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
+                            <a href="{{ route('vendors.index') }}" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
                                 Vendors
                             </a>
                         </li>
