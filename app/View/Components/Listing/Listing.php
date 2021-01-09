@@ -8,39 +8,12 @@ use Illuminate\View\Component;
 class Listing extends Component
 {
     /**
-     * Eloquent collection of items.
-     *
-     * @var \Illuminate\Support\Collection
-     */
-    public $items;
-
-    /**
-     * Name of the items.
-     *
-     * @var string
-     */
-    public $itemsName = null;
-
-    /**
-     * List of hidden columns that are not shown on listing.
-     *
-     * @var array
-     */
-    public $hiddenColumns = [];
-
-    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(
-        $items,
-        $itemsName = '',
-        $hiddenColumns = []
-    ) {
-        $this->items = $items;
-        $this->itemsName = $itemsName;
-        $this->hiddenColumns = $hiddenColumns;
+    public function __construct()
+    {
     }
 
     /**
@@ -50,13 +23,14 @@ class Listing extends Component
      */
     public function render()
     {
-        if ($this->items->isEmpty()) {
-            return view($this->itemsName.'.components.list-empty');
+        if ($this->items()->isEmpty()) {
+            return view($this->itemsName().'.components.list-empty');
         }
 
         return view('components.listing.listing', [
-            'columns' => $this->columns(),
-            'itemsName' => $this->itemsName,
+            'items' => $this->items(),
+            'columns' => $this->handleColumns(),
+            'itemsName' => $this->itemsName(),
         ]);
     }
 
@@ -65,13 +39,13 @@ class Listing extends Component
      *
      * @return array
      */
-    private function columns(): array
+    private function handleColumns(): array
     {
         if ($this->noItems()) {
             return [];
         }
 
-        return $this->visibleColumns();
+        return $this->handleVisibleColumns();
     }
 
     /**
@@ -81,7 +55,7 @@ class Listing extends Component
      */
     private function noItems(): bool
     {
-        return $this->items->isEmpty();
+        return $this->items()->isEmpty();
     }
 
     /**
@@ -89,10 +63,40 @@ class Listing extends Component
      *
      * @return bool
      */
-    private function visibleColumns(): array
+    private function handleVisibleColumns(): array
     {
-        return Arr::where(array_keys($this->items->toQuery()->getModel()->getAttributes()), function ($value) {
-            return ! in_array($value, $this->hiddenColumns);
+        return Arr::where(array_keys($this->items()->toQuery()->getModel()->getAttributes()), function ($value) {
+            return ! in_array($value, $this->hiddenColumns());
         });
+    }
+
+    /**
+     * Return listing items that are shown on the listing.
+     *
+     * @return mixed
+     */
+    protected function items()
+    {
+        return collect();
+    }
+
+    /**
+     * Return name of the shown items.
+     *
+     * @return string
+     */
+    protected function itemsName(): string
+    {
+        return '';
+    }
+
+    /**
+     * Return columns that are hidden from listing.
+     *
+     * @return array
+     */
+    protected function hiddenColumns(): array
+    {
+        return [];
     }
 }
