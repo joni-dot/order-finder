@@ -7,19 +7,6 @@ use App\Models\Carrier;
 class CarrierListing extends Listing
 {
     /**
-     * Return listing items that are shown on the listing.
-     *
-     * @return mixed
-     */
-    protected function items()
-    {
-        return Carrier::select([
-            'id',
-            'name',
-        ])->paginate();
-    }
-
-    /**
      * Return name of the shown items.
      *
      * @return string
@@ -27,5 +14,38 @@ class CarrierListing extends Listing
     protected function itemsName(): string
     {
         return 'carriers';
+    }
+
+    /**
+     * Return array of columns and column definitions.
+     *
+     * @return array
+     */
+    protected function columns(): array
+    {
+        return [
+            'id',
+            'name',
+        ];
+    }
+
+    /**
+     * Return per page count for pagination.
+     *
+     * @return int
+     */
+    protected function perPage(): int
+    {
+        return 15;
+    }
+
+    /**
+     * Return model that Listing component uses.
+     *
+     * @return int
+     */
+    protected function model()
+    {
+        return Carrier::class;
     }
 }

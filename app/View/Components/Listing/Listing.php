@@ -99,4 +99,34 @@ class Listing extends Component
     {
         return [];
     }
+
+    /**
+     * Return array of columns and column definitions.
+     *
+     * @return string
+     */
+    protected function columns(): array
+    {
+        return [];
+    }
+
+    /**
+     * Return per page count for pagination.
+     *
+     * @return int
+     */
+    protected function perPage(): int
+    {
+        return 15;
+    }
+
+    /**
+     * Return model that Listing component uses.
+     *
+     * @return int
+     */
+    protected function model()
+    {
+        return null;
+    }
 }
