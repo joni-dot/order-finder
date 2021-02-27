@@ -10,6 +10,7 @@ class Listing extends Component
     public $items = [];
     public $columns = [];
     public $itemsName = '';
+    public $orderBy = [];
 
     /**
      * Create a new component instance.
@@ -20,7 +21,7 @@ class Listing extends Component
     {
         $this->items = $this->items();
         $this->columns = $this->handleColumns();
-        $this->itemsName = $this->itemsName();      
+        $this->itemsName = $this->itemsName();   
     }
 
     /**
@@ -30,6 +31,8 @@ class Listing extends Component
      */
     public function render() 
     {
+        $this->items = $this->items();
+
         return view('livewire.general.listing');
     }
 
@@ -40,7 +43,21 @@ class Listing extends Component
      */
     public function sortToggle(string $column) 
     {
-        
+        $this->orderBy = Arr::only($this->orderBy, [$column]);
+
+        switch (Arr::get($this->orderBy, $column)) {
+            case 'ASC':
+                $this->orderBy = Arr::set($this->orderBy, $column, 'DESC');
+                break;
+
+            case 'DESC':
+                $this->orderBy = Arr::set($this->orderBy, $column, 'ASC');
+                break;
+
+            default:
+                $this->orderBy = Arr::set($this->orderBy, $column, 'ASC');
+                break;
+        }
     }
 
     /**
@@ -86,9 +103,25 @@ class Listing extends Component
      */
     protected function items()
     {
-        return $this->model()
-            ->select($this->columns())
-            ->get();
+        $query = $this->model()->select($this->columns());
+        
+        $query = $this->buildOrderBy($query);
+
+        return $query->get();
+    }
+
+    /**
+     * Build order by clause to the query.
+     *
+     * @return mixed
+     */
+    protected function buildOrderBy($query)
+    {
+        foreach ($this->orderBy as $column => $direction) {
+            $query->orderBy($column, $direction);
+        }
+
+        return $query;
     }
 
     /**

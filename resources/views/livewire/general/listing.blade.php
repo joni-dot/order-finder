@@ -1,4 +1,8 @@
 
+@php 
+    use Illuminate\Support\Arr;
+@endphp
+
 @if ($items->isEmpty())
     @include($itemsName().'.components.list-empty'))
 @else 
@@ -10,7 +14,13 @@
                         {{ __($itemsName.'.columns.'.$column) }}
                         <span wire:click="sortToggle('{{ $column }}')"    
                         >   
-                            <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                            @if(Arr::get($orderBy, $column) == 'ASC')
+                                <span>@svg('cheveron-down', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                            @elseif(Arr::get($orderBy, $column) == 'DESC')
+                                <span>@svg('cheveron-up', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                            @else
+                                <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                            @endif
                         </span>
                     </th>
                 @endforeach
