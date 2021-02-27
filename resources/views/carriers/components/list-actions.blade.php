@@ -2,4 +2,5 @@
 <livewire:general.delete-model 
     :model="$item"
     :redirectRoute="route('carriers.index')"
+    :key="$item->id"
 >

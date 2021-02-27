@@ -5,6 +5,6 @@
         <x-anchors.buttons.create :href="'/carriers/create'" :text="'New carrier'"/>
     </div>
     <div class="my-4">
-        <x-listing.carrier-listing/>
+        <livewire:carriers.carrier-listing />
     </div>
 @endsection

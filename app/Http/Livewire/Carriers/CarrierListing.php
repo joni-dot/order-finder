@@ -1,8 +1,9 @@
 <?php
 
-namespace App\View\Components\Listing;
+namespace App\Http\Livewire\Carriers;
 
 use App\Models\Carrier;
+use App\Http\Livewire\General\Listing;
 
 class CarrierListing extends Listing
 {

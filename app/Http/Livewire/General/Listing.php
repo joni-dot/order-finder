@@ -1,38 +1,46 @@
 <?php
 
-namespace App\View\Components\Listing;
+namespace App\Http\Livewire\General;
 
 use Illuminate\Support\Arr;
-use Illuminate\View\Component;
+use Livewire\Component;
 
 class Listing extends Component
 {
+    public $items = [];
+    public $columns = [];
+    public $itemsName = '';
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function mount()
     {
-        
+        $this->items = $this->items();
+        $this->columns = $this->handleColumns();
+        $this->itemsName = $this->itemsName();      
     }
 
     /**
-     * Get the view / contents that represent the component.
+     * Render livewire component.
      *
-     * @return \Illuminate\Contracts\View\View|string
+     * @return mixed
      */
-    public function render()
+    public function render() 
     {
-        if ($this->items()->isEmpty()) {
-            return view($this->itemsName().'.components.list-empty');
-        }
+        return view('livewire.general.listing');
+    }
 
-        return view('components.listing.listing', [
-            'items' => $this->items(),
-            'columns' => $this->handleColumns(),
-            'itemsName' => $this->itemsName(),
-        ]);
+    /**
+     * Handle sorting toggle.
+     * 
+     * @param string $column
+     */
+    public function sortToggle(string $column) 
+    {
+        
     }
 
     /**

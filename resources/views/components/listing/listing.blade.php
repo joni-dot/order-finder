@@ -2,7 +2,13 @@
     <thead>
         <tr>    
             @foreach($columns as $column) 
-                <th class="text-right pb-2 pt-2">{{ __($itemsName.'.columns.'.$column) }}</th>
+                <th class="text-right pb-2 pt-2">
+                    {{ __($itemsName.'.columns.'.$column) }}
+                    <span wire:click="sortToggle('{{ $column }}')"    
+                    >   
+                        <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                    </span>
+                </th>
             @endforeach
             <th class="text-right pb-2 pt-2"></th>
         </tr>
