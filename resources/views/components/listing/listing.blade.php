@@ -2,7 +2,7 @@
     <thead>
         <tr>    
             @foreach($columns as $column) 
-                <th class="text-right pb-2 pt-2">{{ __($items->toQuery()->getModel()->getTable().'.columns.'.$column) }}</th>
+                <th class="text-right pb-2 pt-2">{{ __($itemsName.'.columns.'.$column) }}</th>
             @endforeach
             <th class="text-right pb-2 pt-2"></th>
         </tr>

@@ -42,10 +42,10 @@ class CarrierListing extends Listing
     /**
      * Return model that Listing component uses.
      *
-     * @return int
+     * @return stringS
      */
     protected function model()
     {
-        return Carrier::class;
+        return new Carrier;
     }
 }

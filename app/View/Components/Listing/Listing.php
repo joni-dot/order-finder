@@ -14,6 +14,7 @@ class Listing extends Component
      */
     public function __construct()
     {
+        
     }
 
     /**
@@ -77,7 +78,9 @@ class Listing extends Component
      */
     protected function items()
     {
-        return collect();
+        return $this->model()
+            ->select($this->columns())
+            ->get();
     }
 
     /**
