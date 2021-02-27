@@ -21,7 +21,7 @@ class Listing extends Component
     {
         $this->items = $this->items();
         $this->columns = $this->handleColumns();
-        $this->itemsName = $this->itemsName();   
+        $this->itemsName = $this->itemsName();
     }
 
     /**
@@ -29,7 +29,7 @@ class Listing extends Component
      *
      * @return mixed
      */
-    public function render() 
+    public function render()
     {
         $this->items = $this->items();
 
@@ -38,10 +38,10 @@ class Listing extends Component
 
     /**
      * Handle sorting toggle.
-     * 
+     *
      * @param string $column
      */
-    public function sortToggle(string $column) 
+    public function sortToggle(string $column)
     {
         $this->orderBy = Arr::only($this->orderBy, [$column]);
 
@@ -104,7 +104,7 @@ class Listing extends Component
     protected function items()
     {
         $query = $this->model()->select($this->columns());
-        
+
         $query = $this->buildOrderBy($query);
 
         return $query->get();

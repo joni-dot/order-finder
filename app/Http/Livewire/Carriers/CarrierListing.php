@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Carriers;
 
-use App\Models\Carrier;
 use App\Http\Livewire\General\Listing;
+use App\Models\Carrier;
 
 class CarrierListing extends Listing
 {

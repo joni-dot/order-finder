@@ -14,7 +14,6 @@ class Listing extends Component
      */
     public function __construct()
     {
-        
     }
 
     /**
