@@ -12,7 +12,9 @@
                 @foreach($columns as $column) 
                     <th class="text-right pb-2 pt-2">
                         {{ __($itemsName.'.columns.'.$column) }}
-                        <span wire:click="sortToggle('{{ $column }}')"    
+                        <span 
+                            wire:click="sortToggle('{{ $column }}')"
+                            wire:loading.remove
                         >   
                             @if(Arr::get($orderBy, $column) == 'ASC')
                                 <span>@svg('cheveron-down', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
@@ -22,6 +24,7 @@
                                 <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
                             @endif
                         </span>
+                        <span wire:loading>@svg('refresh', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
                     </th>
                 @endforeach
                 <th class="text-right pb-2 pt-2"></th>
