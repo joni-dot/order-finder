@@ -46,7 +46,7 @@ class CarrierModeOfTransportListing extends Listing
      */
     protected function itemsName(): string
     {
-        return 'carriers.mode-of-transports';
+        return 'mode-of-transports';
     }
 
     /**

@@ -4,14 +4,14 @@
 @endphp
 
 @if ($items->isEmpty())
-    @include($itemsName().'.components.list-empty'))
+    @include($viewPath.'.components.list-empty'))
 @else 
     <table class="table-auto w-full">
         <thead>
             <tr>    
                 @foreach($columns as $column) 
                     <th class="text-right pb-2 pt-2">
-                        {{ __($itemsName.'.columns.'.$column) }}
+                        {{ __($langFile.'.columns.'.$column) }}
                         <span 
                             wire:click="sortToggle('{{ $column }}')"
                             wire:loading.remove
@@ -36,7 +36,7 @@
                     <td class="mb-2 pt-2 pb-2 text-right">{{ $item->id }}</td>
                     <td class="mb-2 pt-2 pb-2 text-right">{{ $item->name }}</td>
                     <td class="mb-2 pt-2 pb-2 text-right">
-                        @includeIf($itemsName.'.components.list-actions')
+                        @includeIf($viewPath.'.components.list-actions')
                     </td>
                 </tr>
             @empty

@@ -8,16 +8,6 @@ use App\Models\Carrier;
 class CarrierListing extends Listing
 {
     /**
-     * Return name of the shown items.
-     *
-     * @return string
-     */
-    protected function itemsName(): string
-    {
-        return 'carriers';
-    }
-
-    /**
      * Return array of columns and column definitions.
      *
      * @return array
@@ -28,16 +18,6 @@ class CarrierListing extends Listing
             'id',
             'name',
         ];
-    }
-
-    /**
-     * Return per page count for pagination.
-     *
-     * @return int
-     */
-    protected function perPage(): int
-    {
-        return 15;
     }
 
     /**

@@ -9,20 +9,9 @@ class Listing extends Component
 {
     public $items = [];
     public $columns = [];
-    public $itemsName = '';
+    public $langFile = '';
     public $orderBy = [];
-
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function mount()
-    {
-        $this->items = $this->items();
-        $this->columns = $this->handleColumns();
-        $this->itemsName = $this->itemsName();
-    }
+    public $viewPath = '';
 
     /**
      * Render livewire component.
@@ -32,6 +21,9 @@ class Listing extends Component
     public function render()
     {
         $this->items = $this->items();
+        $this->columns = $this->handleColumns();
+        $this->langFile = $this->langFile();
+        $this->viewPath = $this->viewPath();
 
         return view('livewire.general.listing');
     }
@@ -125,13 +117,31 @@ class Listing extends Component
     }
 
     /**
-     * Return name of the shown items.
+     * Return the lang file of the items.
      *
      * @return string
      */
-    protected function itemsName(): string
+    protected function langFile(): string
     {
-        return '';
+        if (method_exists($this->model(), 'getTable')) {
+            return $this->model()->getTable();
+        }
+
+        return $this->model()->getRelated()->getTable();
+    }
+
+    /**
+     * Returns the path of items view path.
+     *
+     * @return string
+     */
+    protected function viewPath(): string
+    {
+        if (method_exists($this->model(), 'getTable')) {
+            return $this->model()->getTable();
+        }
+
+        return $this->model()->getRelated()->getTable();
     }
 
     /**
