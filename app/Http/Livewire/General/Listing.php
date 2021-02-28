@@ -14,9 +14,9 @@ class Listing extends Component
     public $viewPath = '';
 
     /**
-     * Render livewire component.
+     * Render livewire component view.
      *
-     * @return mixed
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function render()
     {
@@ -32,6 +32,7 @@ class Listing extends Component
      * Handle sorting toggle.
      *
      * @param string $column
+     * @return void
      */
     public function sortToggle(string $column)
     {
@@ -79,11 +80,11 @@ class Listing extends Component
     /**
      * Return columns that are visible on listing.
      *
-     * @return bool
+     * @return array
      */
     private function handleVisibleColumns(): array
     {
-        return Arr::where(array_keys($this->items()->toQuery()->getModel()->getAttributes()), function ($value) {
+        return Arr::where($this->columns(), function ($value) {
             return ! in_array($value, $this->hiddenColumns());
         });
     }
@@ -91,7 +92,7 @@ class Listing extends Component
     /**
      * Return listing items that are shown on the listing.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     protected function items()
     {
@@ -105,7 +106,7 @@ class Listing extends Component
     /**
      * Build order by clause to the query.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Query\Builder
      */
     protected function buildOrderBy($query)
     {
@@ -123,11 +124,7 @@ class Listing extends Component
      */
     protected function langFile(): string
     {
-        if (method_exists($this->model(), 'getTable')) {
-            return $this->model()->getTable();
-        }
-
-        return $this->model()->getRelated()->getTable();
+        return $this->modelTable();
     }
 
     /**
@@ -136,6 +133,16 @@ class Listing extends Component
      * @return string
      */
     protected function viewPath(): string
+    {
+        return $this->modelTable();
+    }
+
+    /**
+     * Try to get table name from model or model relation.
+     *
+     * @return string
+     */
+    protected function modelTable(): string
     {
         if (method_exists($this->model(), 'getTable')) {
             return $this->model()->getTable();
@@ -157,7 +164,7 @@ class Listing extends Component
     /**
      * Return array of columns and column definitions.
      *
-     * @return string
+     * @return array
      */
     protected function columns(): array
     {
@@ -177,7 +184,7 @@ class Listing extends Component
     /**
      * Return model that Listing component uses.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Model|null
      */
     protected function model()
     {
