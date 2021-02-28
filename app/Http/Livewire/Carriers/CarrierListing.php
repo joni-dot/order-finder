@@ -15,8 +15,12 @@ class CarrierListing extends Listing
     protected function columns(): array
     {
         return [
-            'id',
-            'name',
+            'id' => [
+                'sortable' => true,
+            ],
+            'name' => [
+                'sortable' => true,
+            ],
         ];
     }
 

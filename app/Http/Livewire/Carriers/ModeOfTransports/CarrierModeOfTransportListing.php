@@ -52,9 +52,15 @@ class CarrierModeOfTransportListing extends Listing
     protected function columns(): array
     {
         return [
-            'id',
-            'name',
-            'carrier_id',
+            'id' => [
+                'sortable' => true,
+            ],
+            'name' => [
+                'sortable' => true,
+            ],
+            'carrier_id' => [
+                'sortable' => true,
+            ],
         ];
     }
 

@@ -84,8 +84,8 @@ class Listing extends Component
      */
     private function handleVisibleColumns(): array
     {
-        return Arr::where($this->columns(), function ($value) {
-            return ! in_array($value, $this->hiddenColumns());
+        return Arr::where($this->columns(), function ($value, $key) {
+            return ! in_array($key, $this->hiddenColumns());
         });
     }
 
@@ -96,7 +96,7 @@ class Listing extends Component
      */
     protected function items()
     {
-        $query = $this->model()->select($this->columns());
+        $query = $this->model()->select($this->buildSelect());
 
         $query = $this->buildOrderBy($query);
 
@@ -115,6 +115,16 @@ class Listing extends Component
         }
 
         return $query;
+    }
+
+    /**
+     * Build select array for the guery builder select method.
+     *
+     * @return array
+     */
+    protected function buildSelect()
+    {
+        return array_keys($this->columns());
     }
 
     /**

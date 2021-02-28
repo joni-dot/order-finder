@@ -9,21 +9,23 @@
     <table class="table-auto w-full">
         <thead>
             <tr>    
-                @foreach($columns as $column) 
+                @foreach($columns as $column => $attributes) 
                     <th class="text-right pb-2 pt-2">
                         {{ __($langFile.'.columns.'.$column) }}
-                        <span 
-                            wire:click="sortToggle('{{ $column }}')"
-                            wire:loading.remove
-                        >   
-                            @if(Arr::get($orderBy, $column) == 'ASC')
-                                <span>@svg('cheveron-down', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
-                            @elseif(Arr::get($orderBy, $column) == 'DESC')
-                                <span>@svg('cheveron-up', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
-                            @else
-                                <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
-                            @endif
-                        </span>
+                        @if($attributes['sortable'] ?? false)
+                            <span 
+                                wire:click="sortToggle('{{ $column }}')"
+                                wire:loading.remove
+                            >   
+                                @if(Arr::get($orderBy, $column) == 'ASC')
+                                    <span>@svg('cheveron-down', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                                @elseif(Arr::get($orderBy, $column) == 'DESC')
+                                    <span>@svg('cheveron-up', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                                @else
+                                    <span>@svg('code', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
+                                @endif
+                            </span>
+                        @endif
                         <span wire:loading>@svg('refresh', 'fill-current w-4 h-4 mr-1 ml-1 inline')</span>
                     </th>
                 @endforeach
