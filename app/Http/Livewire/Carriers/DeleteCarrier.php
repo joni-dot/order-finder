@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Carriers;
 
+use App\Actions\Carriers\DeleteCarrier as DeleteCarrierAction;
 use App\Events\Carriers\CarrierDeleted;
 use App\Models\Carrier;
 use Livewire\Component;
@@ -17,8 +18,8 @@ class DeleteCarrier extends Component
 
     public function delete()
     {
-        CarrierDeleted::dispatch(
-            tap(Carrier::findOrFail($this->carrierId))->delete()
+        (new DeleteCarrierAction())->execute(
+            Carrier::findOrFail($this->carrierId)
         );
 
         return redirect()->to('/carriers');
