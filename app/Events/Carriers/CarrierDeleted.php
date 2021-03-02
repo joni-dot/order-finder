@@ -2,6 +2,7 @@
 
 namespace App\Events\Carriers;
 
+use App\Models\Carrier;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -15,13 +16,21 @@ class CarrierDeleted
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
+     * The carrier instance.
+     *
+     * @var \App\Models\Carrier
+     */
+    public $carrier;
+
+    /**
      * Create a new event instance.
      *
+     * @param  \App\Models\Order  $order
      * @return void
      */
-    public function __construct()
+    public function __construct(Carrier $carrier)
     {
-        //
+        $this->carrier = $carrier;
     }
 
     /**
