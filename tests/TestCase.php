@@ -3,6 +3,7 @@
 namespace Tests;
 
 use App\Models\Carrier;
+use App\Models\Counter;
 use App\Models\ModeOfTransport;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -48,5 +49,25 @@ abstract class TestCase extends BaseTestCase
     protected function assertDatabaseModeOfTransportCount(int $count): void
     {
         $this->assertDatabaseCount((new ModeOfTransport)->getTable(), $count);
+    }
+
+    /**
+     * Assert that database has counter.
+     *
+     * @param array $data
+     */
+    protected function assertDatabaseHasCounter(array $data): void
+    {
+        $this->assertDatabaseHas((new Counter)->getTable(), $data);
+    }
+
+    /**
+     * Assert that database has specific amount of counter.
+     *
+     * @param int $data
+     */
+    protected function assertDatabaseCounterCount(int $count): void
+    {
+        $this->assertDatabaseCount((new Counter)->getTable(), $count);
     }
 }
