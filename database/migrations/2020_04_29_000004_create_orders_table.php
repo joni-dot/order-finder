@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('vendor_id');
             $table->foreignId('carrier_id');
-            $table->foreignId('mode_of_delivery_id');
+            $table->foreignId('mode_of_transport_id');
             $table->string('order_number');
             $table->text('description');
             $table->decimal('amount_vat', 8, 2);
@@ -35,9 +35,9 @@ class CreateOrdersTable extends Migration
                 ->references('id')
                 ->on('carriers');
 
-            $table->foreign('mode_of_delivery_id')
+            $table->foreign('mode_of_transport_id')
                 ->references('id')
-                ->on('mode_of_deliveries');
+                ->on('mode_of_transports');
         });
     }
 
