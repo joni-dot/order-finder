@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\General;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class DeleteModel extends Component
@@ -24,6 +25,14 @@ class DeleteModel extends Component
 
     public function delete()
     {
+        $actionClass = 'App\\Actions\\'
+            .Str::plural(class_basename($this->model)).'\\'
+            .'Delete'.class_basename($this->model);
+
+        if (class_exists($actionClass)) {
+            (new $actionClass)->execute($this->model);
+        }
+
         $this->model->delete();
 
         return redirect()->to($this->redirectRoute);
