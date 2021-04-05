@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <div class="text-right">
         <a href="/vendors/create" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             New vendor
@@ -32,4 +30,4 @@
             </tbody>
         </table>
     </div>
-@endsection
+</x-layout>

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     @include('carriers.components.sub-nav', ['carrier' => $carrier])
     <livewire:carriers.edit-carrier :carrier="$carrier">
-@endsection
+</x-layout>
