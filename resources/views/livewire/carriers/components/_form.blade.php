@@ -12,12 +12,7 @@
         />
     </div>
 </div>
-@error('name')
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5" role="alert">
-        <strong class="font-bold">Name!</strong>
-        <span class="block sm:inline">{{ $message }}</span>
-    </div>
-@enderror
+<x-form.input-error :name="'name'" :text="'Name'"/>
 <div class="text-left">
     <button 
         class="shadow bg-purple-700 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" 
