@@ -1,18 +1,18 @@
 <div class="mb-4">
-  <div class="mb-2">
-    <label class="block text-white font-bold md:text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
-        Name
-    </label>
-  </div>
-  <div>
-    <input 
-        class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-700" 
-        id="name" 
-        name="name"
-        type="text"
-        wire:model="name"
-    >
-  </div>
+    <div class="mb-2">
+        <x-form.label>
+            Name
+        </x-form.label>
+    </div>
+    <div>
+        <input 
+            class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-700" 
+            id="name" 
+            name="name"
+            type="text"
+            wire:model="name"
+        >
+    </div>
 </div>
 @error('name')
     <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5" role="alert">
