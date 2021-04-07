@@ -22,6 +22,16 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
+     * Assert that database missing carrier.
+     *
+     * @param array $data
+     */
+    protected function assertDatabaseMissingCarrier(array $data): void
+    {
+        $this->assertDatabaseMissing((new Carrier)->getTable(), $data);
+    }
+
+    /**
      * Assert that database has specific amount of carriers.
      *
      * @param int $data
