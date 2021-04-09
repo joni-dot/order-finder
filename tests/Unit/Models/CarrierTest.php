@@ -18,9 +18,7 @@ class CarrierTest extends TestCase
      */
     public function testThatIdIsGuarded(): void
     {
-        $carrierData = Carrier::factory()->make()->toArray();
-
-        Carrier::create(array_merge($carrierData, [
+        Carrier::create(Carrier::factory()->raw([
             'id' => 123,
         ]));
 

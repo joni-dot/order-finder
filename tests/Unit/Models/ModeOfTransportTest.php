@@ -17,11 +17,7 @@ class ModeOfTransportTest extends TestCase
      */
     public function testThatIdIsGuarded(): void
     {
-        $modeOfTransportData = ModeOfTransport::factory()
-            ->make()
-            ->toArray();
-
-        ModeOfTransport::create(array_merge($modeOfTransportData, [
+        ModeOfTransport::create(ModeOfTransport::factory()->raw([
             'id' => 123,
         ]));
 
