@@ -11,12 +11,8 @@ class CarrierTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that model if is guarded.
-     *
-     * @return void
-     */
-    public function testThatIdIsGuarded(): void
+    /** @test */
+    public function id_is_quarded()
     {
         Carrier::create(Carrier::factory()->raw([
             'id' => 123,
@@ -29,12 +25,8 @@ class CarrierTest extends TestCase
         ]);
     }
 
-    /**
-     * Test that mode of transports has many relationship is working.
-     *
-     * @return void
-     */
-    public function testThatHasManyModeOfTransports(): void
+    /** @test */
+    public function it_has_mode_of_transports()
     {
         $carrier = Carrier::factory()->create();
 
@@ -48,12 +40,8 @@ class CarrierTest extends TestCase
         $this->assertEquals(2, $carrier->modeOfTransports()->count());
     }
 
-    /**
-     * Test that can create mode of transport for carrier by usin relationship.
-     *
-     * @return void
-     */
-    public function testThatModeOfTransportsRelationsShipCanBeUsedToCreate(): void
+    /** @test */
+    public function it_can_create_mode_of_transport_by_using_relation()
     {
         $carrier = Carrier::factory()->create();
 

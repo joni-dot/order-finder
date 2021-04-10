@@ -27,24 +27,16 @@ class DeleteCarrierTest extends TestCase
         (new DeleteCarrier)->execute($this->carrier);
     }
 
-    /**
-     * Test that DeleteCarrier Action can delete carrier.
-     *
-     * @return void
-     */
-    public function testThatItCanDeleteCarrier(): void
+    /** @test */
+    public function it_can_delete_carrier()
     {
         $this->assertDatabaseMissingCarrier([
             'id' => $this->carrier->id,
         ]);
     }
 
-    /**
-     * Test that DeleteCarrier Action dispatches event.
-     *
-     * @return void
-     */
-    public function testThatItDispatchEvent(): void
+    /** @test */
+    public function it_dispatches_event()
     {
         Event::assertDispatchedTimes(CarrierDeleted::class, 1);
 

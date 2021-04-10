@@ -10,12 +10,8 @@ class CreateCarrierTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that CreateCarrierAction can create carrier.
-     *
-     * @return void
-     */
-    public function testThatItCanCreateCarrier(): void
+    /** @test */
+    public function it_create_carrier()
     {
         (new CreateCarrier)->execute([
             'name' => 'Carrier name',

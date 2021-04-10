@@ -10,12 +10,8 @@ class ModeOfTransportTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that CreateCarrierAction can create carrier.
-     *
-     * @return void
-     */
-    public function testThatIdIsGuarded(): void
+    /** @test */
+    public function id_is_quarded()
     {
         ModeOfTransport::create(ModeOfTransport::factory()->raw([
             'id' => 123,

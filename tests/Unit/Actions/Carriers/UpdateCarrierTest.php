@@ -12,12 +12,8 @@ class UpdateCarrierTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that UpdateCarrierAction can create carrier.
-     *
-     * @return void
-     */
-    public function testThatItCanUpdateCarrier(): void
+    /** @test */
+    public function it_can_update_carrier()
     {
         $existingCarrier = Carrier::factory()->create([
             'name' => 'Old name',

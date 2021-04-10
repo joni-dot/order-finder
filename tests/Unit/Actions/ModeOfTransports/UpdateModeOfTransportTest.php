@@ -11,12 +11,8 @@ class UpdateModeOfTransportTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that UpdateModeOfTransportAction can update mode of transport.
-     *
-     * @return void
-     */
-    public function testThatItCanUpdateModeOfTransport(): void
+    /** @test */
+    public function it_can_update_mode_of_transport()
     {
         $modeOfTransport = ModeOfTransport::factory()->create([
             'name' => 'Old',

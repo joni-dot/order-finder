@@ -10,12 +10,8 @@ class CreateModeOfTransportTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that CreateModeOfTransportAction can create mode of transport.
-     *
-     * @return void
-     */
-    public function testThatItCanCreateModeOfTransport(): void
+    /** @test */
+    public function it_can_create_mode_of_transport()
     {
         (new CreateModeOfTransport)->execute([
             'name' => 'Example name',

@@ -10,7 +10,7 @@ class ReinstallTestEnvTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_reinstall_test_env(): void
+    public function it_can_reinstall_test_env()
     {
         $this->artisan('test:reinstall')
             ->expectsOutput('Reinstalling testing environment...')

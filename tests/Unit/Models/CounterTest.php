@@ -10,12 +10,8 @@ class CounterTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * Test that model id is guarded.
-     *
-     * @return void
-     */
-    public function testThatIdIsGuarded(): void
+    /** @test */
+    public function id_is_quarded()
     {
         Counter::create([
             'id' => 123,
