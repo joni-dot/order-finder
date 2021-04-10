@@ -37,7 +37,14 @@ class ReinstallTestEnv extends Command
      */
     public function handle()
     {
+        $this->info('Reinstalling testing environment...');
+
+        $this->info('Migrating database...');
         $this->call('migrate:fresh');
+
+        $this->info('Seeding data to the database...');
         $this->call('db:seed');
+
+        $this->info('Reinstalling complete!');
     }
 }
