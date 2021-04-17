@@ -44,15 +44,15 @@ Route::delete('vendors/', [DeleteVendorController::class, '__invoke'])->name('ve
 // Carriers...
 Route::get('carriers', [ListCarriersController::class, '__invoke'])->name('carriers.index');
 Route::get('carriers/create', [ShowCarrierCreationFormController::class, '__invoke'])->name('carriers.create');
-Route::get('carriers/{carrier}/edit', [ShowCarrierEditFormController::class, '__invoke'])->name('carriers.edit')->whereNumber('carrier');
-Route::patch('carriers/{carrier}', [UpdateCarrierController::class, '__invoke'])->name('carriers.update')->whereNumber('carrier');
+Route::get('carriers/{carrier:slug}/edit', [ShowCarrierEditFormController::class, '__invoke'])->name('carriers.edit');
+Route::patch('carriers/{carrier:slug}', [UpdateCarrierController::class, '__invoke'])->name('carriers.update');
 Route::post('carriers/', [StoreCarrierController::class, '__invoke'])->name('carriers.store');
-Route::delete('carriers/', [DeleteCarrierController::class, '__invoke'])->name('carriers.delete')->whereNumber('carrier');
+Route::delete('carriers/', [DeleteCarrierController::class, '__invoke'])->name('carriers.delete');
 
 // Carrier mode of transports...
-Route::get('carriers/{carrier}/mode-of-transports', [ListCarrierModeOfTransportsController::class, '__invoke'])->name('carriers.mode-of-transports.index')->whereNumber('carrier');
-Route::get('carriers/{carrier}/mode-of-transports/create', [ShowCarrierModeOfTransportCreationFormController::class, '__invoke'])->name('carriers.mode-of-transports.create')->whereNumber('carrier');
-Route::get('carriers/{carrier}/mode-of-transports/edit/{modeOfTransport}', [ShowCarrierModeOfTransportEditFormController::class, '__invoke'])->name('carriers.mode-of-transports.edit')->whereNumber('carrier')->whereNumber('modeOfTransport');
+Route::get('carriers/{carrier:slug}/mode-of-transports', [ListCarrierModeOfTransportsController::class, '__invoke'])->name('carriers.mode-of-transports.index');
+Route::get('carriers/{carrier:slug}/mode-of-transports/create', [ShowCarrierModeOfTransportCreationFormController::class, '__invoke'])->name('carriers.mode-of-transports.create');
+Route::get('carriers/{carrier:slug}/mode-of-transports/edit/{modeOfTransport}', [ShowCarrierModeOfTransportEditFormController::class, '__invoke'])->name('carriers.mode-of-transports.edit')->whereNumber('modeOfTransport');
 
 // Orders...
 Route::get('orders', [ListOrdersController::class, '__invoke'])->name('orders.index');

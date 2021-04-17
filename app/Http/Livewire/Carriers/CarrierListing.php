@@ -8,6 +8,16 @@ use App\Models\Carrier;
 class CarrierListing extends Listing
 {
     /**
+     * Return columns that are hidden from listing.
+     *
+     * @return array
+     */
+    protected function hiddenColumns(): array
+    {
+        return ['slug'];
+    }
+
+    /**
      * Return array of columns and column definitions.
      *
      * @return array
@@ -20,6 +30,9 @@ class CarrierListing extends Listing
             ],
             'name' => [
                 'sortable' => true,
+            ],
+            'slug' => [
+                'sortable' => false,
             ],
         ];
     }

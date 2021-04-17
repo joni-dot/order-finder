@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Carrier;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CarrierFactory extends Factory
 {
@@ -23,6 +24,9 @@ class CarrierFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'slug' => function (array $attributes) {
+                return Str::slug($attributes['name']);
+            },
         ];
     }
 }

@@ -16,15 +16,19 @@ class CarrierSeeder extends Seeder
     {
         Carrier::create([
             'name' => 'Posti',
+            'slug' => 'posti',
         ]);
         Carrier::create([
             'name' => 'Matkahuolto',
+            'slug' => 'matkahuolto',
         ]);
         Carrier::create([
             'name' => 'DHL',
+            'slug' => 'dhl',
         ]);
         Carrier::create([
             'name' => 'DB Schenker',
+            'slug' => 'db-schenker',
         ]);
     }
 }

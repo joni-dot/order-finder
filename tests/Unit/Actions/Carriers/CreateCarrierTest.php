@@ -22,6 +22,7 @@ class CreateCarrierTest extends TestCase
         $this->assertDatabaseHasCarrier([
             'id' => 1,
             'name' => 'Carrier name',
+            'slug' => 'carrier-name',
         ]);
     }
 }

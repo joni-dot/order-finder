@@ -28,6 +28,7 @@ class UpdateCarrierTest extends TestCase
         $this->assertDatabaseHasCarrier([
             'id' => $existingCarrier->id,
             'name' => 'New name',
+            'slug' => 'new-name',
         ]);
     }
 }
