@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
+<x-layout>
     <livewire:carriers.mode-of-transports.create-carrier-mode-of-transport :carrier="$carrier">
-@endsection
+</x-layout>
