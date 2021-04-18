@@ -31,7 +31,7 @@ class CreateCarrierModeOfTransport extends Component
 
         return redirect()->route(
             'carriers.mode-of-transports.index',
-            $this->carrier->id
+            $this->carrier->slug
         );
     }
 
