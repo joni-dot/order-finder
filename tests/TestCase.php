@@ -3,7 +3,9 @@
 namespace Tests;
 
 use App\Models\Carrier;
+use App\Models\Comment;
 use App\Models\Counter;
+use App\Models\Like;
 use App\Models\ModeOfTransport;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -79,5 +81,45 @@ abstract class TestCase extends BaseTestCase
     protected function assertDatabaseCounterCount(int $count): void
     {
         $this->assertDatabaseCount((new Counter)->getTable(), $count);
+    }
+
+    /**
+     * Assert that database has comment.
+     *
+     * @param array $data
+     */
+    protected function assertDatabaseHasComment(array $data): void
+    {
+        $this->assertDatabaseHas((new Comment)->getTable(), $data);
+    }
+
+    /**
+     * Assert that database has specific amount of comments.
+     *
+     * @param int $data
+     */
+    protected function assertDatabaseCommentCount(int $count): void
+    {
+        $this->assertDatabaseCount((new Comment)->getTable(), $count);
+    }
+
+    /**
+     * Assert that database has like.
+     *
+     * @param array $data
+     */
+    protected function assertDatabaseHasLike(array $data): void
+    {
+        $this->assertDatabaseHas((new Like)->getTable(), $data);
+    }
+
+    /**
+     * Assert that database has specific amount of likes.
+     *
+     * @param int $data
+     */
+    protected function assertDatabaseLikeCount(int $count): void
+    {
+        $this->assertDatabaseCount((new Like)->getTable(), $count);
     }
 }
