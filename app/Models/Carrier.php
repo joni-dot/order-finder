@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Carrier extends Model
 {
-    use HasFactory;
+    use Commentable, HasFactory;
 
     /**
      * The attributes that aren't mass assignable.

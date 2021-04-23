@@ -3,6 +3,7 @@
 namespace Tests\Unit\Models;
 
 use App\Models\Carrier;
+use App\Models\Comment;
 use App\Models\ModeOfTransport;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -52,5 +53,25 @@ class CarrierTest extends TestCase
             'id' => $modeOfTransport->id,
             'carrier_id' => $carrier->id,
         ]);
+    }
+
+    /** @test */
+    public function it_has_comments()
+    {
+        $carrier = Carrier::factory()->create();
+
+        $carrierComments = Comment::factory()
+            ->count(2)
+            ->create([
+                'commentable_id' => $carrier->id,
+                'commentable_type' => $carrier->getMorphClass(),
+            ]);
+
+        $this->assertEquals(2, $carrier->comments()->count());
+
+        $this->assertEquals(
+            $carrier->comments->toArray(),
+            $carrierComments->toArray()
+        );
     }
 }
