@@ -14,21 +14,32 @@ class CarrierSeeder extends Seeder
      */
     public function run()
     {
-        Carrier::create([
-            'name' => 'Posti',
-            'slug' => 'posti',
-        ]);
-        Carrier::create([
-            'name' => 'Matkahuolto',
-            'slug' => 'matkahuolto',
-        ]);
-        Carrier::create([
-            'name' => 'DHL',
-            'slug' => 'dhl',
-        ]);
-        Carrier::create([
-            'name' => 'DB Schenker',
-            'slug' => 'db-schenker',
-        ]);
+        Carrier::factory()
+            ->hasComments(3)
+            ->create([
+                'name' => 'Posti',
+                'slug' => 'posti',
+            ]);
+
+        Carrier::factory()
+            ->hasComments(3)
+            ->create([
+                'name' => 'Matkahuolto',
+                'slug' => 'matkahuolto',
+            ]);
+
+        Carrier::factory()
+            ->hasComments(3)
+            ->create([
+                'name' => 'DHL',
+                'slug' => 'dhl',
+            ]);
+
+        Carrier::factory()
+            ->hasComments(3)
+            ->create([
+                'name' => 'DB Schenker',
+                'slug' => 'db-schenker',
+            ]);
     }
 }
