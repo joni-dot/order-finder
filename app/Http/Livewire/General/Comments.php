@@ -40,5 +40,7 @@ class Comments extends Component
         ]);
 
         $this->model->addComment($this->comment);
+
+        $this->comment = '';
     }
 }
