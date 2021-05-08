@@ -33,6 +33,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__.'/auth.php';
+
 // Vendors...
 Route::get('vendors', [ListVendorsController::class, '__invoke'])->name('vendors.index');
 Route::get('vendors/create', [ShowVendorCreationFormController::class, '__invoke'])->name('vendors.create');
