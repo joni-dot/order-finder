@@ -1,27 +1,5 @@
 <?php
 
-use App\Http\Controllers\Carriers\DeleteCarrierController;
-use App\Http\Controllers\Carriers\ListCarriersController;
-use App\Http\Controllers\Carriers\ModeOfTransports\ListCarrierModeOfTransportsController;
-use App\Http\Controllers\Carriers\ModeOfTransports\ShowCarrierModeOfTransportCreationFormController;
-use App\Http\Controllers\Carriers\ModeOfTransports\ShowCarrierModeOfTransportEditFormController;
-use App\Http\Controllers\Carriers\ShowCarrierCreationFormController;
-use App\Http\Controllers\Carriers\ShowCarrierEditFormController;
-use App\Http\Controllers\Carriers\StoreCarrierController;
-use App\Http\Controllers\Carriers\UpdateCarrierController;
-use App\Http\Controllers\Orders\DeleteOrderController;
-use App\Http\Controllers\Orders\ListOrdersController;
-use App\Http\Controllers\Orders\ShowOrderCreationFormController;
-use App\Http\Controllers\Orders\ShowOrderEditFormController;
-use App\Http\Controllers\Orders\UpdateOrderController;
-use App\Http\Controllers\Vendors\DeleteVendorController;
-use App\Http\Controllers\Vendors\ListVendorsController;
-use App\Http\Controllers\Vendors\ShowVendorCreationFormController;
-use App\Http\Controllers\Vendors\ShowVendorEditFormController;
-use App\Http\Controllers\Vendors\StoreVendorController;
-use App\Http\Controllers\Vendors\UpdateVendorController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,31 +13,6 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-// Vendors...
-Route::get('vendors', [ListVendorsController::class, '__invoke'])->name('vendors.index');
-Route::get('vendors/create', [ShowVendorCreationFormController::class, '__invoke'])->name('vendors.create');
-Route::get('vendors/{vendor}/edit', [ShowVendorEditFormController::class, '__invoke'])->name('vendors.edit')->whereNumber('vendor');
-Route::patch('vendors/{vendor}', [UpdateVendorController::class, '__invoke'])->name('vendors.update')->whereNumber('vendor');
-Route::post('vendors/', [StoreVendorController::class, '__invoke'])->name('vendors.store');
-Route::delete('vendors/', [DeleteVendorController::class, '__invoke'])->name('vendors.delete');
-
-// Carriers...
-Route::get('carriers', [ListCarriersController::class, '__invoke'])->name('carriers.index');
-Route::get('carriers/create', [ShowCarrierCreationFormController::class, '__invoke'])->name('carriers.create');
-Route::get('carriers/{carrier:slug}/edit', [ShowCarrierEditFormController::class, '__invoke'])->name('carriers.edit');
-Route::patch('carriers/{carrier:slug}', [UpdateCarrierController::class, '__invoke'])->name('carriers.update');
-Route::post('carriers/', [StoreCarrierController::class, '__invoke'])->name('carriers.store');
-Route::delete('carriers/', [DeleteCarrierController::class, '__invoke'])->name('carriers.delete');
-
-// Carrier mode of transports...
-Route::get('carriers/{carrier:slug}/mode-of-transports', [ListCarrierModeOfTransportsController::class, '__invoke'])->name('carriers.mode-of-transports.index');
-Route::get('carriers/{carrier:slug}/mode-of-transports/create', [ShowCarrierModeOfTransportCreationFormController::class, '__invoke'])->name('carriers.mode-of-transports.create');
-Route::get('carriers/{carrier:slug}/mode-of-transports/edit/{modeOfTransport}', [ShowCarrierModeOfTransportEditFormController::class, '__invoke'])->name('carriers.mode-of-transports.edit')->whereNumber('modeOfTransport');
-
-// Orders...
-Route::get('orders', [ListOrdersController::class, '__invoke'])->name('orders.index');
-Route::get('orders/{order}/edit', [ShowOrderEditFormController::class, '__invoke'])->name('orders.edit')->whereNumber('order');
-Route::patch('orders/{order}', [UpdateOrderController::class, '__invoke'])->name('orders.update')->whereNumber('order');
-Route::get('orders/create', [ShowOrderCreationFormController::class, '__invoke'])->name('orders.create');
-Route::post('orders/', [StoreOrderController::class, '__invoke'])->name('orders.store');
-Route::delete('orders/', [DeleteOrderController::class, '__invoke'])->name('orders.delete');
+require __DIR__.'/dashboard/vendors.php';
+require __DIR__.'/dashboard/carriers.php';
+require __DIR__.'/dashboard/orders.php';
