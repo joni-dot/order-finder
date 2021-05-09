@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,11 @@
 
 require __DIR__.'/auth.php';
 
-require __DIR__.'/dashboard/vendors.php';
-require __DIR__.'/dashboard/carriers.php';
-require __DIR__.'/dashboard/orders.php';
+Route::middleware(['auth'])
+    ->prefix('dashboard')
+    ->name('dashboard.')
+    ->group(function () {
+        require __DIR__.'/dashboard/vendors.php';
+        require __DIR__.'/dashboard/carriers.php';
+        require __DIR__.'/dashboard/orders.php';
+    });
