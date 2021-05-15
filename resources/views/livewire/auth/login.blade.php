@@ -1,6 +1,9 @@
 <div class="flex p-20">
     <div class="flex-1"></div>
     <div class="flex-1 bg-indigo-300 p-5 rounded">
+        @error('general')
+            <div class="font-bold text-white mt-2 bg-red-500 p-4 pl-3 pr-3 rounded mb-6">{{ $message }}</div>
+        @enderror
         <form wire:submit.prevent="login">
             <div class="mb-4">
                 <label class="font-bold block mb-1" for="email">Email</label>
