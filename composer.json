@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0",
         "blade-ui-kit/blade-icons": "^0.5.0",
+        "danharrin/livewire-rate-limiting": "^0.2.0",
         "fideloper/proxy": "^4.2",
         "friendsofphp/php-cs-fixer": "^2.17",
         "fruitcake/laravel-cors": "^1.0",
