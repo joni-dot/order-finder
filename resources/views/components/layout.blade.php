@@ -19,19 +19,28 @@
     <div class="w-1/3">
         <div class="bg-white w-full">
             <ul class="list-reset">
-                <li >
-                    <a href="{{ route('dashboard.carriers.index') }}" class="block p-4 text-grey-darker font-bold border-purple hover:bg-grey-lighter border-r-4">
-                        Carriers
+                <li>
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center m-2 my-2">
+                        <div class="{{ request()->route()->named('dashboard') ? 'bg-white' : 'bg-blue-700' }} inline-block rounded-full w-6 h-6 mr-2 border-solid border-blue-700 border-4">&nbsp;</div> 
+                        <div class="inline-block rounded-full bg-blue-700 text-white p-1 px-4 text-xs font-bold">Dashboard</div>
                     </a>
                 </li>
                 <li >
-                    <a href="{{ route('dashboard.orders.index') }}" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
-                        Orders
+                    <a href="{{ route('dashboard.carriers.index') }}" class="inline-flex items-center m-2 my-2">
+                        <div class="{{ request()->route()->named('dashboard.carriers.index') ? 'bg-white' : 'bg-blue-700' }} inline-block rounded-full w-6 h-6 mr-2 border-solid border-blue-700 border-4">&nbsp;</div> 
+                        <div class="inline-block rounded-full bg-blue-700 text-white p-1 px-4 text-xs font-bold">Carriers</div>
                     </a>
                 </li>
                 <li >
-                    <a href="{{ route('dashboard.vendors.index') }}" class="block p-4 text-grey-darker font-bold border-grey-lighter hover:border-purple-light hover:bg-grey-lighter border-r-4">
-                        Vendors
+                    <a href="{{ route('dashboard.orders.index') }}" class="inline-flex items-center m-2 my-2">
+                        <div class="{{ request()->route()->named('dashboard.orders.index') ? 'bg-white' : 'bg-blue-700' }} inline-block rounded-full w-6 h-6 mr-2 border-solid border-blue-700 border-4">&nbsp;</div> 
+                        <div class="inline-block rounded-full bg-blue-700 text-white p-1 px-4 text-xs font-bold">Orders</div>
+                    </a>
+                </li>
+                <li >
+                    <a href="{{ route('dashboard.vendors.index') }}" class="inline-flex items-center m-2 my-2">
+                        <div class="{{ request()->route()->named('dashboard.vendors.index') ? 'bg-white' : 'bg-blue-700' }} inline-block rounded-full w-6 h-6 mr-2 border-solid border-blue-700 border-4">&nbsp;</div> 
+                        <div class="inline-block rounded-full bg-blue-700 text-white p-1 px-4 text-xs font-bold">Vendors</div>
                     </a>
                 </li>
             </ul>
