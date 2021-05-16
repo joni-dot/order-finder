@@ -10,12 +10,15 @@
 <livewire:styles>
 
 <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-    <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">Order finder</span>
+    <div>
+        <span class="font-semibold text-xl text-white">Order finder</span>
+    </div>
+    <div>
+        <livewire:auth.log-out />
     </div>
 </nav>
 
-<div class="flex flex-wrap my-4">
+<div class="flex flex-wrap my-4 mx-4">
     <div class="w-1/3">
         <div class="bg-white w-full">
             <ul class="list-reset">
