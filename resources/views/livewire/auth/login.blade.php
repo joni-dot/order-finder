@@ -44,8 +44,12 @@
             </div>
             <div>
                 <button class="float-left font-bold bg-white py-1 pb-1 pr-4 pl-4 rounded">
-                    Log in
+                    <span wire:loading.remove>Log in</span>
+                    <span wire:loading>
+                        @svg('refresh', 'animate-spin fill-current w-4 h-4 mr-1 ml-0 inline')
+                    </span>
                 </button>
+
                 @if (Route::has('password.request'))
                     <a class="float-right font-bold" href="{{ route('password.request') }}">
                         Forgot your password?
