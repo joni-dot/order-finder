@@ -13,7 +13,7 @@
                     type="email" 
                     name="email" 
                     :value="old('email')" 
-                    wire:model="email"/>
+                    wire:model.defer="email"/>
                 @error('email')
                     <div class="font-bold text-white mt-2 bg-red-500 p-1 pl-3 pr-3 rounded">{{  $message  }}</div>
                 @enderror
@@ -25,7 +25,7 @@
                     class="block w-full rounded border-solid border-2 border-white"
                     type="password"
                     name="password"
-                    wire:model="password"
+                    wire:model.defer="password"
                 />
                 @error('password')
                     <div class="font-bold text-white mt-2 bg-red-500 p-1 pl-3 pr-3 rounded">{{  $message  }}</div>
@@ -43,7 +43,7 @@
                 </label>
             </div>
             <div>
-                <button class="float-left font-bold bg-white py-1 pb-1 pr-4 pl-4 rounded">
+                <button wire:loading.attr="disabled" class="float-left font-bold bg-white py-1 pb-1 pr-4 pl-4 rounded">
                     <span wire:loading.remove>Log in</span>
                     <span wire:loading>
                         @svg('refresh', 'animate-spin fill-current w-4 h-4 mr-1 ml-0 inline')
