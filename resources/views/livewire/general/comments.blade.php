@@ -12,10 +12,17 @@
                 class="my-2 w-full rounded border shadow"
                 id="comment"
                 name="comment"
-                wire:model="comment"    
+                wire:model.defer="comment"
             ></textarea>
             <x-form.input-error :name="'comment'" :text="'comment'"/>
-            <button wire:click="addComment()" class="shadow rounded bg-blue-600 py-2 px-4 text-white">Add comment</button>
+            <button 
+                wire:click="addComment()"
+                wire:loading.attr="disabled"
+                class="shadow rounded bg-blue-600 py-2 px-4 text-white"
+            >
+                <span wire:loading.remove>Add comment</span>
+                <span wire:loading>@svg('refresh', 'animate-spin fill-current w-4 h-4 mr-1 ml-0 inline')</span>
+            </button>
         </div>
     </div>
 </div>
