@@ -17,6 +17,6 @@ class UpdateCarrierController extends Controller
     {
         $carrier->update($request->validated());
 
-        return redirect('carriers');
+        return redirect->route('dashboard.carriers.index');
     }
 }

@@ -22,7 +22,7 @@ class DeleteCarrier extends Component
             Carrier::findOrFail($this->carrierId)
         );
 
-        return redirect()->to('/carriers');
+        return redirect()->route('dashboard.carriers.index');
     }
 
     public function render()

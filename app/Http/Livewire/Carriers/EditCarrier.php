@@ -26,7 +26,7 @@ class EditCarrier extends Component
             'name' => $this->name,
         ]);
 
-        return redirect()->to('/carriers');
+        return redirect()->route('dashboard.carriers.index');
     }
 
     public function render()

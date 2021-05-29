@@ -5,7 +5,7 @@
             <div class="w-full">
                 <h1 class="text-grey-darkest font-bold text-lg">Mode of transports</h1>
                 <div class="w-full mt-4 mb-4 text-right">
-                    <x-anchors.buttons.create :href="route('carriers.mode-of-transports.create', $carrier->slug)" :text="'New mode of transport'"/>
+                    <x-anchors.buttons.create :href="route('dashboard.carriers.mode-of-transports.create', $carrier->slug)" :text="'New mode of transport'"/>
                 </div>  
             </div>
             <div>
