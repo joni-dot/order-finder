@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Auth;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 use Livewire\Component;
 
 class ForgotPassword extends Component
@@ -12,6 +13,7 @@ class ForgotPassword extends Component
     use WithRateLimiting;
 
     public $email;
+    public $status;
 
     public function sendLink()
     {
@@ -27,7 +29,9 @@ class ForgotPassword extends Component
             'email' => 'required|string|email',
         ]);
 
-        $this->addError('general', 'Check credentials!');
+        $this->status = Password::sendResetLink(
+            ['email' => $this->email]
+        );
     }
 
     public function render()
