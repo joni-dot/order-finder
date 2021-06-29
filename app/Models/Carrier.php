@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Commentable;
+use JoniDot\Comments\Models\Traits\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
